@@ -27,7 +27,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Fetch opencv_contrib
       run: |
-        git clone --depth 1 https://github.com/opencv/opencv_contrib.git ../opencv_contrib
+        pip install opencv-contrib-python
     - name: Install package
       run: |
         pip install -e .[test]
