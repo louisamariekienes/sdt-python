@@ -25,6 +25,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Fetch opencv_contrib
+      run: |
+        git clone --depth 1 https://github.com/opencv/opencv_contrib.git ../opencv_contrib
     - name: Install package
       run: |
         pip install -e .[test]
