@@ -6,4 +6,3 @@ pims
 tifffile
 pyyaml
 pywavelets
-cv2
