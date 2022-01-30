@@ -49,4 +49,5 @@ jobs:
       shell: pwsh 
       run: |
         conda install pytest
+        conda install scipy
         pytest
