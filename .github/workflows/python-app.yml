@@ -48,7 +48,7 @@ jobs:
     - name: Installing needed packages
       shell: pwsh 
       run: |
-        conda install pytest
+        conda install scipy
         conda install pytables
     - name: Test with pytest
       shell: pwsh 
