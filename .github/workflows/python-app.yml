@@ -38,10 +38,6 @@ jobs:
       shell: pwsh 
       run: |
         conda install -c conda-forge opencv
-    - name: Install package
-      shell: pwsh 
-      run: |
-        conda install -e .[test]
     - name: Lint with flake8
       shell: pwsh 
       run: |
