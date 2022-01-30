@@ -37,7 +37,7 @@ jobs:
     - name: Fetch opencv_contrib
       shell: pwsh 
       run: |
-        conda install opencv-contrib-python
+        conda install -c https://conda.anaconda.org/menpo opencv
     - name: Install package
       shell: pwsh 
       run: |
