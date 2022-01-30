@@ -33,7 +33,7 @@ jobs:
       run: |
         conda update conda --upgrade conda
         conda install flake8 pytest
-        if [ -f requirements.txt ]; then conda install -r requirements.txt; fi
+        conda install --yes --file requirements.txt
     - name: Fetch opencv_contrib
       run: |
         conda install opencv-contrib-python
