@@ -29,6 +29,7 @@ jobs:
       run: conda list
         
     - name: Install dependencies
+      shell: pwsh 
       run: |
         conda update conda --upgrade conda
         conda install flake8 pytest
