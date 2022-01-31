@@ -50,6 +50,7 @@ jobs:
       run: |
         conda install scipy
         conda install pytables
+        conda install numba
     - name: Test with pytest
       shell: pwsh 
       run: |
