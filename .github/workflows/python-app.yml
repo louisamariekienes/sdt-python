@@ -46,7 +46,7 @@ jobs:
     - name: Fetch opencv_contrib
       shell: pwsh 
       run: |
-        conda install -c conda-forge opencv trackpy lmfit ipympl scikit-learn pyqt
+        conda install -c conda-forge opencv trackpy lmfit-1.0.2 ipympl scikit-learn pyqt
         
     - name: Lint with flake8
       shell: pwsh 
