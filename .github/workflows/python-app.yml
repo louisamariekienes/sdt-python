@@ -20,6 +20,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v2
       with:
         python-version: 3.9
+        
     - name: Conda info
       shell: pwsh
       run: conda info
@@ -34,10 +35,19 @@ jobs:
         conda update conda --upgrade conda
         conda install flake8 pytest
         conda install --yes --file requirements.txt
+        
+    - name: Installing needed packages
+      shell: pwsh 
+      run: |
+        conda install scipy
+        conda install pytables
+        conda install numba
+        
     - name: Fetch opencv_contrib
       shell: pwsh 
       run: |
         conda install -c conda-forge opencv trackpy lmfit ipympl scikit-learn pyqt
+        
     - name: Lint with flake8
       shell: pwsh 
       run: |
@@ -45,12 +55,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Installing needed packages
-      shell: pwsh 
-      run: |
-        conda install scipy
-        conda install pytables
-        conda install numba
+
     - name: Test with pytest
       shell: pwsh 
       run: |
