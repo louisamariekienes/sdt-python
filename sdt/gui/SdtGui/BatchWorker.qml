@@ -25,9 +25,31 @@ T.BatchWorker {
             Layout.fillWidth: true
         }
         Label {
-            text: (root.count != root.progress ?
-                   "Processing " + (root.progress + 1) + " of " + root.count + "…" :
-                   "Finished.")
+            text: {
+                var ret = "Processing " + (root.progress + 1) + " of " + root.count + "…"
+                var ci = root._currentItem
+                ci ? ret + "\n(" + ci + ")" : ret
+            }
+            visible: root.isRunning
+        }
+        Label {
+            text: {
+                var it = root._errorList.length > 1 ? "items" : "item"
+                var ret = "Errors encountered in " + it + "\n"
+                return ret + root._errorList.join("\n")
+            }
+            visible: root._errorList.length
+        }
+        Label {
+            text: "Finished."
+            visible: (!root.isRunning &&
+                      (root.errorPolicy == T.BatchWorker.ErrorPolicy.Continue ||
+                       !root._errorList.length))
+        }
+        Label {
+            text: "Aborted."
+            visible: (root.errorPolicy == T.BatchWorker.ErrorPolicy.Abort &&
+                      root._errorList.length)
         }
     }
 }
