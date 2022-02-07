@@ -33,20 +33,14 @@ jobs:
       shell: pwsh 
       run: |
         conda update conda --upgrade conda
-        conda install flake8 pytest
-        conda install --yes --file requirements.txt
+        conda update -c conda-forge --all
+        conda install -c conda-forge flake8 pytest
+        conda install -c conda-forge --yes --file requirements.txt
         
     - name: Installing needed packages
       shell: pwsh 
       run: |
-        conda install scipy
-        conda install pytables
-        conda install numba
-        
-    - name: Fetch opencv_contrib
-      shell: pwsh 
-      run: |
-        conda install -c conda-forge opencv trackpy lmfit ipympl scikit-learn pyqt
+        conda install -c conda-forge scipy pytables numba opencv trackpy lmfit ipympl scikit-learn pyqt tables
         
     - name: Lint with flake8
       shell: pwsh 
