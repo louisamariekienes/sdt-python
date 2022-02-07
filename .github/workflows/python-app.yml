@@ -40,7 +40,7 @@ jobs:
     - name: Installing needed packages
       shell: pwsh 
       run: |
-        conda install -c conda-forge scipy pytables numba opencv trackpy lmfit ipympl scikit-learn pyqt tables
+        conda install -c conda-forge scipy pytables numba opencv trackpy lmfit ipympl scikit-learn pyqt pytables
         
     - name: Lint with flake8
       shell: pwsh 
