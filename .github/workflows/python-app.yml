@@ -2,13 +2,10 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-name: Python application
+name: sdt-python test suite
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on:  [push, pull_request]
+
     
 jobs:
   build:
